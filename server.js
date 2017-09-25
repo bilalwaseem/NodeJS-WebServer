@@ -7,7 +7,7 @@ var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs'); //key value pair
-app.use(express.static(__dirname + '/public')); //midelware
+app.use(express.static(__dirname + '/public')); //middleware
 app.use((req, res, next) => {
   var now = new Date().toString();
   var log = `${now}: ${req.method} ${req.url}`;
@@ -56,9 +56,23 @@ app.get('/bad', (req, res) => {
   })
 });
 
+
+app.get('/bad', (req, res) => {
+  res.send({
+    error: '400',
+    description: 'bad request'
+  })
+});
+
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About page'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects page'
   });
 });
 
