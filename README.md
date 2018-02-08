@@ -1,1 +1,1 @@
-# This is the basic app structure for a structure in node js
+# This is the basic app structure for a server in node js
